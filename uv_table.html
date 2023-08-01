@@ -22,7 +22,7 @@
             border-style: solid;
         }
 
-        .UVIndex table {
+        #UVTable {
             width: 100%;
             border-collapse: collapse;
             border-color: #094d92;
@@ -31,7 +31,7 @@
             background-color: #f5f5f5;
         }
 
-        .UVI-credits {
+        #UVICredits {
             margin-top: 2px;
             width: 100%;
             /*text-align: right;*/
@@ -39,21 +39,21 @@
             display: flex;
         }
 
-        .UVI-credits > :first-child {
+        #UVICredits > :first-child {
             margin-right: auto;
         }
 
-        .UVI-credits a {
+        #UVICredits a {
             text-decoration: none;
             color: #9ed8ff;
         }
 
-        .UVI-help {
+        #UVIHelp {
             position: relative;
         }
 
-        .UVI-help::after {
-            content: attr(-text-hint);
+        #UVIHelp::after {
+            content: "The UV index is a measure of the strength of ultraviolet (UV) radiation from the sun at a specific location on a given day. It helps people gauge the potential risk of sunburn and skin damage, with higher values indicating a greater risk. If the UV index is greater than 4, remember to slap on some sunscreen and wear a cool hat to keep those harmful rays at bay!";
             position: absolute;
             bottom: -100%;
             left: 0;
@@ -72,8 +72,8 @@
 
         }
 
-        .UVI-help:hover::after,
-        .UVI-help:active::after {
+        #UVIHelp:hover::after,
+        #UVIHelp:active::after {
             opacity: 100%;
             scale: 100%;
         }
@@ -97,7 +97,7 @@
                     dataType: 'xml',
 
                     success: function (data) {
-                        const table = document.getElementById('UVtable');
+                        const table = document.getElementById('UVTable');
 
                         day_row = table.insertRow();
                         uv_row = table.insertRow();
@@ -136,6 +136,6 @@
         });
     </script>
 
-    <table id="UVtable"></table>
-    <p class="UVI-credits"><span class="UVI-Help" -text-hint="The UV index is a measure of the strength of ultraviolet (UV) radiation from the sun at a specific location on a given day. It helps people gauge the potential risk of sunburn and skin damage, with higher values indicating a greater risk. If the UV index is greater than 4, remember to slap on some sunscreen and wear a cool hat to keep those harmful rays at bay!">Help</span><span>Powered by <a href="https://www.bbc.co.uk/weather/2649051">BBC weather</a></span></p>
+    <table id="UVTable"></table>
+    <p id="UVICredits"><span id="UVIHelp">Help</span><span>Powered by <a href="https://www.bbc.co.uk/weather/2649051">BBC weather</a></span></p>
 </div>
